@@ -9,7 +9,11 @@ dotenv.config()
 
 const app = express()
 
+app.get("/health", (req, res) => {
+  res.status(200).json({ msg: "api is up and running" });
+});
+
 
 app.listen(ENV.PORT, ()=>{
-    console.log("port is up on 3000")
+    console.log("port is up on ", ENV.PORT)
 })
