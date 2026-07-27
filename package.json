@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/rohan-tech-negi/NewProject/issues"
   },
-  "homepage": "https://github.com/rohan-tech-negi/NewProject#readme"
+  "homepage": "https://github.com/rohan-tech-negi/NewProject#readme",
+  "engines": {
+    "node": ">=20.12.0"
+  }
 }
