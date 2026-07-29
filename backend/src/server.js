@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import { ENV } from "./lib/env.js"
 import path from "path"
 import { fileURLToPath } from "url"
+import { connectDB } from "./lib/db.js"
 
 dotenv.config()
 
@@ -25,4 +26,5 @@ if (ENV.NODE_ENV === "production") {
 
 app.listen(ENV.PORT || 3000, ()=>{
     console.log("port is up on ", ENV.PORT || 3000)
+    connectDB()
 })
