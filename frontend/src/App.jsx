@@ -1,6 +1,6 @@
 
 import { SignInButton, SignOutButton, Show, UserButton } from '@clerk/react'
-import './App.css'
+
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
       <Show when="signed-in">
         <SignOutButton>
           Sign Out
-        </SignOutButton>
+      </SignOutButton>
       </Show>
 
       <UserButton />
