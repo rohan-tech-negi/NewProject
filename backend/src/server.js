@@ -24,6 +24,11 @@ app.get("/health", (req, res) => {
   res.status(200).json({ msg: "api is up and running" });
 });
 
+
+app.get("/video-calls", (req, res) => {
+  res.status(200).json({ msg: "video calls api" });
+});
+
 if (ENV.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 
