@@ -10,6 +10,7 @@ import {serve} from "inngest/express"
 import { inngest , functions} from "./lib/inngest.js";
 import { protectRoute } from "./middleware/protectRoute.js";
 import chatRoutes from "./routes/chatRoutes.js"
+import sessionRoutes from "./routes/sessionRoutes.js"
 dotenv.config();
 
 const app = express();
