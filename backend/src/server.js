@@ -9,6 +9,7 @@ import cors from "cors";
 import {serve} from "inngest/express"
 import { inngest , functions} from "./lib/inngest.js";
 import { protectRoute } from "./middleware/protectRoute.js";
+import chatRoutes from "./routes/chatRoutes.js"
 dotenv.config();
 
 const app = express();
@@ -22,7 +23,7 @@ app.use(clerkMiddleware())
 
 
 app.use("/api/inngest", serve({client: inngest, functions}))
-app.use("/api/chat", chatRutes)
+app.use("/api/chat", chatRoutes)
 
 app.get("/health", (req, res) => {
   
