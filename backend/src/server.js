@@ -8,6 +8,7 @@ import { clerkMiddleware } from '@clerk/express'
 import cors from "cors";
 import {serve} from "inngest/express"
 import { inngest , functions} from "./lib/inngest.js";
+import { protectRoute } from "./middleware/protectRoute.js";
 dotenv.config();
 
 const app = express();
@@ -21,15 +22,11 @@ app.use(clerkMiddleware())
 
 
 app.use("/api/inngest", serve({client: inngest, functions}))
+app.use("/api/chat", chatRutes)
 
 app.get("/health", (req, res) => {
   
   res.status(200).json({ msg: "api is up and running" });
-});
-
-
-app.get("/video-calls", protectRoute, (req, res) => {
-  res.status(200).json({ msg: "video calls api" });
 });
 
 if (ENV.NODE_ENV === "production") {
