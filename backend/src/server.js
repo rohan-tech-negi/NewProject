@@ -28,7 +28,7 @@ app.get("/health", (req, res) => {
 });
 
 
-app.get("/video-calls", (req, res) => {
+app.get("/video-calls", protectRoute, (req, res) => {
   res.status(200).json({ msg: "video calls api" });
 });
 
