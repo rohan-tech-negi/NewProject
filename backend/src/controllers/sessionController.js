@@ -1,4 +1,5 @@
 
+import { chatClient } from "../lib/stream.js";
 import Session from "../models/Session.js";
 export async function createSession(req, res) {
     try {
@@ -41,7 +42,14 @@ export async function createSession(req, res) {
 }
 
 
-export async function getActiveSessions(_, res) {}
+export async function getActiveSessions(_, res) {
+
+  try {
+    
+  } catch (error) {
+    
+  }
+}
 
 export async function getMyRecentSessions(req, res) {}
 
