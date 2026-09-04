@@ -77,7 +77,13 @@ export async function getMyRecentSessions(req, res) {
   }
 }
 
-export async function getSessionById(req, res) {}
+export async function getSessionById(req, res) {
+  try {
+    
+  } catch (error) {
+    
+  }
+}
 
 export async function joinSession(req, res) {}
 
