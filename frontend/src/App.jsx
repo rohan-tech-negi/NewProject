@@ -5,7 +5,7 @@ import { SignInButton, SignOutButton, Show, UserButton } from '@clerk/react'
 function App() {
   return (
     <>
-       <h1>Welcome to the app</h1>
+       <h1 className='text-red-500'>Welcome to the app</h1>
 
       <Show when="signed-out">
         <SignInButton mode="modal">
