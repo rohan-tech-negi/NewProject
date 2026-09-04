@@ -94,6 +94,12 @@ export async function getSessionById(req, res) {
   }
 }
 
-export async function joinSession(req, res) {}
+export async function joinSession(req, res) {
+  try {
+    
+  } catch (error) {
+    
+  }
+}
 
 export async function endSession(req, res) {}
