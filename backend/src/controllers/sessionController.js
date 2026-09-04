@@ -104,13 +104,13 @@ export async function joinSession(req, res) {
 
     if (!session) return res.status(404).json({ message: "Session not found" });
 
-    if (session.status !== "active") {
-      return res.status(400).json({ message: "Cannot join a completed session" });
-    }
+    // if (session.status !== "active") {
+    //   return res.status(400).json({ message: "Cannot join a completed session" });
+    // }
 
-    if (session.host.toString() === userId.toString()) {
-      return res.status(400).json({ message: "Host cannot join their own session as participant" });
-    }
+    // if (session.host.toString() === userId.toString()) {
+    //   return res.status(400).json({ message: "Host cannot join their own session as participant" });
+    // }
 
     // check if session is already full - has a participant
     if (session.participant) return res.status(409).json({ message: "Session is full" });
@@ -128,4 +128,10 @@ export async function joinSession(req, res) {
   }
 }
 
-export async function endSession(req, res) {}
+export async function endSession(req, res) {
+  try {
+    
+  } catch (error) {
+    
+  }
+}
