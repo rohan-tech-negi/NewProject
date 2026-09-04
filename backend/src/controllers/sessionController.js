@@ -58,7 +58,13 @@ export async function getActiveSessions(_, res) {
   }
 }
 
-export async function getMyRecentSessions(req, res) {}
+export async function getMyRecentSessions(req, res) {
+  try {
+    
+  } catch (error) {
+    
+  }
+}
 
 export async function getSessionById(req, res) {}
 
