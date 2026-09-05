@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import ProblemsPage from './pages/ProblemsPage'
 import Toaster from "react-hot-toast"
+import DashboardPage from './pages/DashboardPage';
 
 function App() {
 
