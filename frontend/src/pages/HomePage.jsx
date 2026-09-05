@@ -45,6 +45,21 @@ const HomePage = () => {
      </div>
 </nav>
 
+
+<div className="max-w-7xl mx-auto px-4 py-20">
+    <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+      <div className="space-y-8">
+
+        <div className="badge badge-primary badge-lg">
+              <ZapIcon className="size-4" />
+              Real-time Collaboration
+            </div>
+      </div>
+    </div>
+
+</div>
+
     </div>
   )
 }
