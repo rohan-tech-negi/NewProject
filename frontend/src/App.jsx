@@ -1,6 +1,6 @@
 
 import { SignInButton, SignOutButton, Show, UserButton, useUser } from '@clerk/react'
-import {Routes, Route} from "react-router"
+import { Navigate, Route, Routes } from "react-router";
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import ProblemsPage from './pages/ProblemsPage'
