@@ -13,8 +13,8 @@ function App() {
     <>
 <Routes>
   <Route path="/" element={<HomePage></HomePage>} />
-  <Route path="/about" element={<AboutPage></AboutPage>}></Route>
-  <Route path="/problems" element={<ProblemsPage></ProblemsPage>}></Route>
+  {/* <Route path="/about" element={<AboutPage></AboutPage>}></Route> */}
+  <Route path="/problems" element={isSignedIn ? <ProblemsPage /> : <Navigate to={"/"} />} />
 </Routes>
 
        
