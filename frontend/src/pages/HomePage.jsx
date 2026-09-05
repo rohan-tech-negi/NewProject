@@ -116,19 +116,17 @@ const HomePage = () => {
                 <div className="stat-title">Uptime</div>
               </div>
             </div>
+          </div>
 
-
-
+          {/* Right Column / Hero Image */}
+          <div className="flex justify-center items-center">
             <img
-            src="/hero.png"
-            alt="CodeCollab Platform"
-            className="w-full h-auto rounded-3xl shadow-2xl border-4 border-base-100 hover:scale-105 transition-transform duration-500"
-          />
-
-
-
-      </div>
-    </div>
+              src="/hero.png"
+              alt="CodeCollab Platform"
+              className="w-full h-auto rounded-3xl shadow-2xl border-4 border-base-100 hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+        </div>
 
 
 
