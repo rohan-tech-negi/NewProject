@@ -18,7 +18,7 @@ function App() {
 </Routes>
 
        
-<Toaster/>
+<Toaster toastOption={{duration: 3000}}/>
       
     </>
   )
