@@ -9,6 +9,8 @@ import {
   VideoIcon,
   ZapIcon,
 } from "lucide-react";
+import { SignInButton } from '@clerk/react';
+
 const HomePage = () => {
   return (
     <div className="bg-gradient-to-br from-base-100 via-base-200 to-base-300">
@@ -31,6 +33,15 @@ const HomePage = () => {
               <span className="text-xs text-base-content/60 font-medium -mt-1">Code Together</span>
             </div>
           </Link>
+
+
+
+          <SignInButton mode="modal">
+            <button className="group px-6 py-3 bg-gradient-to-r from-primary to-secondary rounded-xl text-white font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 flex items-center gap-2">
+              <span>Get Started</span>
+              <ArrowRightIcon className="size-4 group-hover:translate-x-0.5 transition-transform" />
+            </button>
+          </SignInButton>
      </div>
 </nav>
 
