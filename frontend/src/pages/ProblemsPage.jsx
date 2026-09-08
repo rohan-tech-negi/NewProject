@@ -1,6 +1,9 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import {PROBLEMS} from "../data/problems.js"
+import { getDifficultyBadgeClass } from "../lib/utils";
+import { Link } from "react-router";
+import { ChevronRightIcon, Code2Icon } from "lucide-react";
 
 const ProblemsPage = () => {
 
@@ -60,6 +63,30 @@ const ProblemsPage = () => {
               </div>
             </Link>
           ))}
+        </div>
+
+        <div className="mt-12 card bg-base-100 shadow-lg">
+          <div className="card-body">
+            <div className="stats stats-vertical lg:stats-horizontal">
+              <div className="stat">
+                <div className="stat-title">Total Problems</div>
+                <div className="stat-value text-primary">{problems.length}</div>
+              </div>
+
+              <div className="stat">
+                <div className="stat-title">Easy</div>
+                <div className="stat-value text-success">{easyProblemsCount}</div>
+              </div>
+              <div className="stat">
+                <div className="stat-title">Medium</div>
+                <div className="stat-value text-warning">{mediumProblemsCount}</div>
+              </div>
+              <div className="stat">
+                <div className="stat-title">Hard</div>
+                <div className="stat-value text-error">{hardProblemsCount}</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
