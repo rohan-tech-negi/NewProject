@@ -9,14 +9,22 @@ import DashboardPage from './pages/DashboardPage';
 
 function App() {
 
-  const {isSignedIn} = useUser()
+  const { isLoaded, isSignedIn } = useUser();
+  // Wait for Clerk to load the session before checking isSignedIn
+  if (!isLoaded) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-base-100">
+        <span className="loading loading-spinner loading-lg text-primary"></span>
+      </div>
+    );
+  }
   return (
     <>
 <Routes>
-  <Route path="/" element={!isSignedIn ? <HomePage /> : <Navigate to={"/dashboard"} />} />
-  <Route path="/dashboard" element={isSignedIn ? <DashboardPage /> : <Navigate to={"/"} />} />
-  <Route path="/problems" element={isSignedIn ? <ProblemsPage /> : <Navigate to={"/"} />} />
-</Routes>
+        <Route path="/" element={!isSignedIn ? <HomePage /> : <Navigate to="/dashboard" />} />
+        <Route path="/dashboard" element={isSignedIn ? <DashboardPage /> : <Navigate to="/" />} />
+        <Route path="/problems" element={isSignedIn ? <ProblemsPage /> : <Navigate to="/" />} />
+      </Routes>
 
        
 <Toaster toastOption={{duration: 3000}}/>
