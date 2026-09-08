@@ -78,7 +78,7 @@ const ProblemsPage = () => {
                 <div className="stat-value text-success">{easyProblemsCount}</div>
               </div>
               <div className="stat">
-                <div className="stat-title">Medium</div>
+                <div className="stat-title">Meedium</div>
                 <div className="stat-value text-warning">{mediumProblemsCount}</div>
               </div>
               <div className="stat">
