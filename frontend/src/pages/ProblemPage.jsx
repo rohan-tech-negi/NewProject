@@ -3,6 +3,9 @@ import { useNavigate, useParams } from "react-router";
 import { PROBLEMS } from '../data/problems';
 import Navbar from '../components/Navbar';
 import { Group, Panel, Separator } from "react-resizable-panels";
+import ProblemDescription from '../components/ProblemDescription';
+import CodeEditorPanel from '../components/CodeEditorPanel';
+import OutputPanel from '../components/OutputPanel';
 const ProblemPage = () => {
 
   const { id } = useParams();
