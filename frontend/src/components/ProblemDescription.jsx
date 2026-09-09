@@ -28,7 +28,25 @@ const ProblemDescription = ({ problem, currentProblemId, onProblemChange, allPro
           </select>
         </div>
       </div>
+
+       <div className="p-6 space-y-6">
+        <div className="bg-base-100 rounded-xl shadow-sm p-5 border border-base-300">
+          <h2 className="text-xl font-bold text-base-content">Description</h2>
+
+          <div className="space-y-3 text-base leading-relaxed">
+            <p className="text-base-content/90">{problem.description.text}</p>
+            {problem.description.notes.map((note, idx) => (
+              <p key={idx} className="text-base-content/90">
+                {note}
+              </p>
+            ))}
+          </div>
+        </div>
+       </div>
+
+      
     </div>
+    
   )
 }
 
