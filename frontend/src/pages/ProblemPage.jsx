@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from "react-router";
 import { PROBLEMS } from '../data/problems';
 import Navbar from '../components/Navbar';
-import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
+import { Group, Panel, Separator } from "react-resizable-panels";
 const ProblemPage = () => {
 
   const { id } = useParams();
@@ -40,9 +40,9 @@ const ProblemPage = () => {
     <div className="h-screen bg-base-100 flex flex-col">
       <Navbar></Navbar>
        <div className="flex-1">
-<PanelGroup direction="horizontal">
+        <Group orientation="horizontal">
           {/* left panel- problem desc */}
-          <Panel defaultSize={40} minSize={30}>
+          <Panel defaultSize="40%" minSize="30%">
             <ProblemDescription
               problem={currentProblem}
               currentProblemId={currentProblemId}
@@ -51,13 +51,13 @@ const ProblemPage = () => {
             />
           </Panel>
 
-          <PanelResizeHandle className="w-2 bg-base-300 hover:bg-primary transition-colors cursor-col-resize" />
+          <Separator className="w-2 bg-base-300 hover:bg-primary transition-colors cursor-col-resize" />
 
           {/* right panel- code editor & output */}
-          <Panel defaultSize={60} minSize={30}>
-            <PanelGroup direction="vertical">
+          <Panel defaultSize="60%" minSize="30%">
+            <Group orientation="vertical">
               {/* Top panel - Code editor */}
-              <Panel defaultSize={70} minSize={30}>
+              <Panel defaultSize="70%" minSize="30%">
                 <CodeEditorPanel
                   selectedLanguage={selectedLanguage}
                   code={code}
@@ -68,16 +68,16 @@ const ProblemPage = () => {
                 />
               </Panel>
 
-              <PanelResizeHandle className="h-2 bg-base-300 hover:bg-primary transition-colors cursor-row-resize" />
+              <Separator className="h-2 bg-base-300 hover:bg-primary transition-colors cursor-row-resize" />
 
               {/* Bottom panel - Output Panel*/}
 
-              <Panel defaultSize={30} minSize={30}>
+              <Panel defaultSize="30%" minSize="30%">
                 <OutputPanel output={output} />
               </Panel>
-            </PanelGroup>
+            </Group>
           </Panel>
-        </PanelGroup>
+        </Group>
        </div>
     </div>
   )
