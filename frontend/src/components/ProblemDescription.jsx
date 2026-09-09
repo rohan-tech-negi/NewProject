@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ProblemDescription = () => {
+const ProblemDescription = ({ problem, currentProblemId, onProblemChange, allProblems }) => {
   return (
     <div>ProblemDescription</div>
   )
