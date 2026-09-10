@@ -30,7 +30,7 @@ const ProblemPage = () => {
 
   const handleLanguageChange = (e) =>{}
 
-  const handleProblemChange = (e) =>{}
+  const handleProblemChange = (e) =>(newProblemId) => navigate(`/problem/${newProblemId}`);
 
   const triggerConfetti = () => {}
 
