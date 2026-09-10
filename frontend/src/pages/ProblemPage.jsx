@@ -28,7 +28,12 @@ const ProblemPage = () => {
   }, [id, selectedLanguage]);
   const currentProblem = PROBLEMS[currentProblemId];
 
-  const handleLanguageChange = (e) =>{}
+  const handleLanguageChange = (e) => {
+    const newLang = e.target.value;
+    setSelectedLanguage(newLang);
+    setCode(currentProblem.starterCode[newLang]);
+    setOutput(null);
+  };
 
   const handleProblemChange = (newProblemId) => navigate(`/problem/${newProblemId}`);
 
