@@ -42,6 +42,23 @@ const CodeEditorPanel = ({
           )}
         </button>
       </div>
+
+      <div className="flex-1">
+        <Editor
+          height={"100%"}
+          language={LANGUAGE_CONFIG[selectedLanguage].monacoLang}
+          value={code}
+          onChange={onCodeChange}
+          theme="vs-dark"
+          options={{
+            fontSize: 16,
+            lineNumbers: "on",
+            scrollBeyondLastLine: false,
+            automaticLayout: true,
+            minimap: { enabled: false },
+          }}
+        />
+      </div>
     </div>
   )
 }
