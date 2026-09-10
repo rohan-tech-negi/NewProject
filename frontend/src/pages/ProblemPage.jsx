@@ -6,6 +6,8 @@ import { Group, Panel, Separator } from "react-resizable-panels";
 import ProblemDescription from '../components/ProblemDescription';
 import CodeEditorPanel from '../components/CodeEditorPanel';
 import OutputPanel from '../components/OutputPanel';
+import toast from "react-hot-toast";
+import { executeCode } from "../lib/piston";
 const ProblemPage = () => {
 
   const { id } = useParams();
@@ -41,7 +43,30 @@ const ProblemPage = () => {
 
   const checkIfTestsPassed = () =>{}
 
-  const handleRunCode = () =>{}
+    const handleRunCode = async () => {
+    setIsRunning(true);
+    setOutput(null);
+
+    const result = await executeCode(selectedLanguage, code);
+    setOutput(result);
+    setIsRunning(false);
+
+    // check if code executed successfully and matches expected output
+
+    if (result.success) {
+      const expectedOutput = currentProblem.expectedOutput[selectedLanguage];
+      const testsPassed = checkIfTestsPassed(result.output, expectedOutput);
+
+      if (testsPassed) {
+        triggerConfetti();
+        toast.success("All tests passed! Great job!");
+      } else {
+        toast.error("Tests failed. Check your output!");
+      }
+    } else {
+      toast.error("Code execution failed!");
+    }
+  };
 
 
   return (
