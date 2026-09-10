@@ -40,11 +40,17 @@ const ProblemPage = () => {
 
   const handleProblemChange = (newProblemId) => navigate(`/problem/${newProblemId}`);
 
-  const triggerConfetti = () => {
+    const triggerConfetti = () => {
     confetti({
       particleCount: 80,
-      spread: 70,
-      origin: { y: 0.6 },
+      spread: 250,
+      origin: { x: 0.2, y: 0.6 },
+    });
+
+    confetti({
+      particleCount: 80,
+      spread: 250,
+      origin: { x: 0.8, y: 0.6 },
     });
   };
     const normalizeOutput = (output) => {
