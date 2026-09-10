@@ -1,5 +1,4 @@
 // Piston API is a service for code execution
-
 const PISTON_API = "https://emkc.org/api/v2/piston";
 
 const LANGUAGE_VERSIONS = {
@@ -9,11 +8,67 @@ const LANGUAGE_VERSIONS = {
 };
 
 /**
+ * Execute JavaScript in the browser environment
+ */
+function executeJavaScriptInBrowser(code) {
+  const logs = [];
+  const customConsole = {
+    log: (...args) => {
+      logs.push(
+        args
+          .map((arg) => {
+            if (arg === undefined) return "undefined";
+            if (arg === null) return "null";
+            if (typeof arg === "object") {
+              try {
+                return JSON.stringify(arg);
+              } catch {
+                return String(arg);
+              }
+            }
+            return String(arg);
+          })
+          .join(" ")
+      );
+    },
+    error: (...args) => {
+      logs.push(args.map((arg) => (typeof arg === "object" ? JSON.stringify(arg) : String(arg))).join(" "));
+    },
+    warn: (...args) => {
+      logs.push(args.map((arg) => (typeof arg === "object" ? JSON.stringify(arg) : String(arg))).join(" "));
+    },
+    info: (...args) => {
+      logs.push(args.map((arg) => (typeof arg === "object" ? JSON.stringify(arg) : String(arg))).join(" "));
+    },
+  };
+
+  try {
+    const run = new Function("console", code);
+    run(customConsole);
+    return {
+      success: true,
+      output: logs.join("\n") || "Code executed successfully with no output.",
+    };
+  } catch (error) {
+    return {
+      success: false,
+      output: logs.join("\n"),
+      error: error.message || String(error),
+    };
+  }
+}
+
+/**
  * @param {string} language - programming language
- * @param {string} code - source code to executed
+ * @param {string} code - source code to execute
  * @returns {Promise<{success:boolean, output?:string, error?: string}>}
  */
 export async function executeCode(language, code) {
+  // For JavaScript, execute directly in browser for instant execution and offline support
+  if (language === "javascript") {
+    return executeJavaScriptInBrowser(code);
+  }
+
   try {
     const languageConfig = LANGUAGE_VERSIONS[language];
 
@@ -40,6 +95,13 @@ export async function executeCode(language, code) {
         ],
       }),
     });
+
+    if (response.status === 401) {
+      return {
+        success: false,
+        error: `Piston Code Execution API returned 401 (Unauthorized). The public emkc.org Piston endpoint now requires an authorized API key.`,
+      };
+    }
 
     if (!response.ok) {
       return {

@@ -7,6 +7,7 @@ import ProblemDescription from '../components/ProblemDescription';
 import CodeEditorPanel from '../components/CodeEditorPanel';
 import OutputPanel from '../components/OutputPanel';
 import toast from "react-hot-toast";
+import confetti from "canvas-confetti";
 import { executeCode } from "../lib/piston";
 const ProblemPage = () => {
 
@@ -39,7 +40,13 @@ const ProblemPage = () => {
 
   const handleProblemChange = (newProblemId) => navigate(`/problem/${newProblemId}`);
 
-  const triggerConfetti = () => {}
+  const triggerConfetti = () => {
+    confetti({
+      particleCount: 80,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
+  };
     const normalizeOutput = (output) => {
     // normalize output for comparison (trim whitespace, handle different spacing)
     return output
@@ -129,7 +136,7 @@ const ProblemPage = () => {
               {/* Bottom panel - Output Panel*/}
 
               <Panel defaultSize="30%" minSize="30%">
-                <OutputPanel output={output} />
+                <OutputPanel output={output} isRunning={isRunning} />
               </Panel>
             </Group>
           </Panel>
