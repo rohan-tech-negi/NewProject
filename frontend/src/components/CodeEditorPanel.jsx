@@ -1,6 +1,13 @@
 import React from 'react'
 
-const CodeEditorPanel = () => {
+const CodeEditorPanel = ({
+  selectedLanguage,
+  code,
+  isRunning,
+  onLanguageChange,
+  onCodeChange,
+  onRunCode,
+}) => {
   return (
     <div>CodeEditorPanel</div>
   )
