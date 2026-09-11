@@ -23,3 +23,12 @@ export const useActiveSessions = () => {
 
   return result;
 };
+
+export const useMyRecentSessions = () => {
+  const result = useQuery({
+    queryKey: ["myRecentSessions"],
+    queryFn: sessionApi.getMyRecentSessions,
+  });
+
+  return result;
+};
