@@ -5,6 +5,7 @@ import { UserButton } from '@clerk/react';
 const Navbar = () => {
 
     const location = useLocation();
+    
 
   console.log(location);
 
