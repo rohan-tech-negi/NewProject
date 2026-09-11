@@ -4,6 +4,7 @@ import {PROBLEMS} from "../data/problems.js"
 import { getDifficultyBadgeClass } from "../lib/utils";
 import { Link } from "react-router";
 import { ChevronRightIcon, Code2Icon } from "lucide-react";
+import { useActiveSessions } from '../hooks/useSessions.js';
 
 const ProblemsPage = () => {
 
@@ -12,6 +13,10 @@ const ProblemsPage = () => {
   const easyProblemsCount = problems.filter((p) => p.difficulty === "Easy").length;
   const mediumProblemsCount = problems.filter((p) => p.difficulty === "Medium").length;
   const hardProblemsCount = problems.filter((p) => p.difficulty === "Hard").length;
+
+  const {data:activeSession, isLoading, error} = useActiveSessions()
+
+  console.log(activeSession)
   return (
     <div className="min-h-screen bg-base-200">
       <Navbar></Navbar>
