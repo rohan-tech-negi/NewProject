@@ -32,3 +32,15 @@ export const useMyRecentSessions = () => {
 
   return result;
 };
+
+
+export const useSessionById = (id) => {
+  const result = useQuery({
+    queryKey: ["session", id],
+    queryFn: () => sessionApi.getSessionById(id),
+    enabled: !!id,
+    refetchInterval: 5000, // refetch every 5 seconds to detect session status changes
+  });
+
+  return result;
+};
