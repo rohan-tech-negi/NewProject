@@ -13,3 +13,13 @@ export const useCreateSession = () => {
 
   return result;
 };
+
+
+export const useActiveSessions = () => {
+  const result = useQuery({
+    queryKey: ["activeSessions"],
+    queryFn: sessionApi.getActiveSessions,
+  });
+
+  return result;
+};
