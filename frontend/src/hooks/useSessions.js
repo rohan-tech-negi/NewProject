@@ -56,3 +56,15 @@ export const useJoinSession = () => {
 
   return result;
 };
+
+
+export const useEndSession = () => {
+  const result = useMutation({
+    mutationKey: ["endSession"],
+    mutationFn: sessionApi.endSession,
+    onSuccess: () => toast.success("Session ended successfully!"),
+    onError: (error) => toast.error(error.response?.data?.message || "Failed to end session"),
+  });
+
+  return result;
+};
