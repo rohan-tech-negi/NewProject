@@ -5,6 +5,8 @@ import { useState } from "react";
 import { useActiveSessions, useCreateSession, useMyRecentSessions } from "../hooks/useSessions";
 import WelcomeSection from "../components/WelcomeSections";
 import Navbar from "../components/Navbar"
+import RecentSessions from "../components/RecentSessions";
+import ActiveSessions from "../components/ActiveSessions";
 
 
 const DashboardPage = () => {
@@ -51,6 +53,22 @@ const DashboardPage = () => {
       <div className="min-h-screen bg-base-300">
         <Navbar></Navbar>
         <WelcomeSection onCreateSession={() => setShowCreateModal(true)} />
+
+          <div className="container mx-auto px-6 pb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <StatsCards
+              activeSessionsCount={activeSessions.length}
+              recentSessionsCount={recentSessions.length}
+            />
+            <ActiveSessions
+              sessions={activeSessions}
+              isLoading={loadingActiveSessions}
+              isUserInSession={isUserInSession}
+            />
+          </div>
+
+          <RecentSessions sessions={recentSessions} isLoading={loadingRecentSessions} />
+        </div>
       </div>
     </>
   )
