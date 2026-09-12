@@ -7,6 +7,7 @@ import WelcomeSection from "../components/WelcomeSections";
 import Navbar from "../components/Navbar"
 import RecentSessions from "../components/RecentSessions";
 import ActiveSessions from "../components/ActiveSessions";
+import CreateSessionModal from "../components/CreateSessionModal";
 
 
 const DashboardPage = () => {
@@ -70,6 +71,15 @@ const DashboardPage = () => {
           <RecentSessions sessions={recentSessions} isLoading={loadingRecentSessions} />
         </div>
       </div>
+
+       <CreateSessionModal
+        isOpen={showCreateModal}
+        onClose={() => setShowCreateModal(false)}
+        roomConfig={roomConfig}
+        setRoomConfig={setRoomConfig}
+        onCreateRoom={handleCreateRoom}
+        isCreating={createSessionMutation.isPending}
+      />
     </>
   )
 }
