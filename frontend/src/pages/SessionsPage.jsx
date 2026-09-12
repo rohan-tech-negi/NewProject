@@ -9,6 +9,18 @@ const SessionsPage = () => {
   const { user } = useUser();
   const [output, setOutput] = useState(null);
   const [isRunning, setIsRunning] = useState(false);
+
+   const { data: sessionData, isLoading: loadingSession, refetch } = useSessionById(id);
+
+  const joinSessionMutation = useJoinSession();
+  const endSessionMutation = useEndSession();
+
+  const session = sessionData?.session;
+  const isHost = session?.host?.clerkId === user?.id;
+  const isParticipant = session?.participant?.clerkId === user?.id;
+  
+
+  
   return (
     <div>SessionsPage</div>
   )
