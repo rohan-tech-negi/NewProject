@@ -4,7 +4,7 @@ import { Navigate, Route, Routes } from "react-router";
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import ProblemsPage from './pages/ProblemsPage'
-import Toaster from "react-hot-toast"
+import { Toaster } from "react-hot-toast";
 import DashboardPage from './pages/DashboardPage';
 import ProblemPage from './pages/ProblemPage';
 
@@ -29,7 +29,7 @@ function App() {
       </Routes>
 
        
-<Toaster toastOption={{duration: 3000}}/>
+<Toaster toastOptions={{ duration: 3000 }} />
       
     </>
   )
