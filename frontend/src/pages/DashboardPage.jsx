@@ -3,6 +3,8 @@ import { useUser } from "@clerk/react";
 import { useState } from "react";
 
 import { useActiveSessions, useCreateSession, useMyRecentSessions } from "../hooks/useSessions";
+import WelcomeSection from "../components/WelcomeSections";
+import Navbar from "../components/Navbar"
 
 
 const DashboardPage = () => {
@@ -47,7 +49,8 @@ const DashboardPage = () => {
   return (
     <>
       <div className="min-h-screen bg-base-300">
-        
+        <Navbar></Navbar>
+        <WelcomeSection onCreateSession={() => setShowCreateModal(true)} />
       </div>
     </>
   )
