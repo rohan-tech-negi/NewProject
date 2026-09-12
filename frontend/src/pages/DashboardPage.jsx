@@ -8,6 +8,7 @@ import Navbar from "../components/Navbar"
 import RecentSessions from "../components/RecentSessions";
 import ActiveSessions from "../components/ActiveSessions";
 import CreateSessionModal from "../components/CreateSessionModal";
+import StatsCards from "../components/StatsCards";
 
 
 const DashboardPage = () => {
