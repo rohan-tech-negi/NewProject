@@ -2,11 +2,12 @@
 import { SignInButton, SignOutButton, Show, UserButton, useUser } from '@clerk/react'
 import { Navigate, Route, Routes } from "react-router";
 import HomePage from './pages/HomePage'
-import AboutPage from './pages/AboutPage'
+
 import ProblemsPage from './pages/ProblemsPage'
 import { Toaster } from "react-hot-toast";
 import DashboardPage from './pages/DashboardPage';
 import ProblemPage from './pages/ProblemPage';
+import SessionsPage from './pages/SessionsPage';
 
 function App() {
 
@@ -26,6 +27,8 @@ function App() {
         <Route path="/dashboard" element={isSignedIn ? <DashboardPage /> : <Navigate to="/" />} />
         <Route path="/problems" element={isSignedIn ? <ProblemsPage /> : <Navigate to="/" />} />
         <Route path="/problem/:id" element={isSignedIn ? <ProblemPage></ProblemPage>: <Navigate to="/" />} />
+        <Route path="/session/:id" element={isSignedIn ? <SessionsPage /> : <Navigate to="/" />} />
+
       </Routes>
 
        
