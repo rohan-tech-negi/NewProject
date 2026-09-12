@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { useUser } from "@clerk/clerk-react";
+import { useUser } from "@clerk/react";
 import { useState } from "react";
 
 import { useActiveSessions, useCreateSession, useMyRecentSessions } from "../hooks/useSessions";
