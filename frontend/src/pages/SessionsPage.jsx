@@ -207,6 +207,32 @@ const SessionsPage = () => {
                   </div>
                 </div>
               </Panel>
+
+              <PanelResizeHandle className="h-2 bg-base-300 hover:bg-primary transition-colors cursor-row-resize" />
+              <Panel defaultSize={50} minSize={20}>
+                <PanelGroup direction="vertical">
+                  <Panel defaultSize={70} minSize={30}>
+                    <CodeEditorPanel
+                      selectedLanguage={selectedLanguage}
+                      code={code}
+                      isRunning={isRunning}
+                      onLanguageChange={handleLanguageChange}
+                      onCodeChange={(value) => setCode(value)}
+                      onRunCode={handleRunCode}
+                    />
+                  </Panel>
+
+                  <PanelResizeHandle className="h-2 bg-base-300 hover:bg-primary transition-colors cursor-row-resize" />
+
+                  <Panel defaultSize={30} minSize={15}>
+                    <OutputPanel output={output} />
+                  </Panel>
+                </PanelGroup>
+              </Panel>
+
+              <PanelResizeHandle className="w-2 bg-base-300 hover:bg-primary transition-colors cursor-col-resize" />
+
+              
             </PanelGroup>
           </Panel>
         </PanelGroup>
