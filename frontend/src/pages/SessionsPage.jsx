@@ -30,6 +30,13 @@ const SessionsPage = () => {
       const [selectedLanguage, setSelectedLanguage] = useState("javascript");
   const [code, setCode] = useState(problemData?.starterCode?.[selectedLanguage] || "");
 
+
+    useEffect(() => {
+    if (!session || loadingSession) return;
+
+    if (session.status === "completed") navigate("/dashboard");
+  }, [session, loadingSession, navigate]);
+
    const handleLanguageChange = (e) => {
     const newLang = e.target.value;
     setSelectedLanguage(newLang);
