@@ -37,6 +37,15 @@ const SessionsPage = () => {
     if (session.status === "completed") navigate("/dashboard");
   }, [session, loadingSession, navigate]);
 
+    useEffect(() => {
+    if (!session || !user || loadingSession) return;
+    if (isHost || isParticipant) return;
+
+    joinSessionMutation.mutate(id, { onSuccess: refetch });
+
+    // remove the joinSessionMutation, refetch from dependencies to avoid infinite loop
+  }, [session, user, loadingSession, isHost, isParticipant, id]);
+
    const handleLanguageChange = (e) => {
     const newLang = e.target.value;
     setSelectedLanguage(newLang);
