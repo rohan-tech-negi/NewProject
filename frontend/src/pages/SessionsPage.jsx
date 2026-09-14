@@ -190,6 +190,20 @@ const SessionsPage = () => {
                         </div>
                       </div>
                     )}
+
+                      {problemData?.constraints && problemData.constraints.length > 0 && (
+                      <div className="bg-base-100 rounded-xl shadow-sm p-5 border border-base-300">
+                        <h2 className="text-xl font-bold mb-4 text-base-content">Constraints</h2>
+                        <ul className="space-y-2 text-base-content/90">
+                          {problemData.constraints.map((constraint, idx) => (
+                            <li key={idx} className="flex gap-2">
+                              <span className="text-primary">•</span>
+                              <code className="text-sm">{constraint}</code>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
                 </div>
               </Panel>
