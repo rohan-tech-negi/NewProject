@@ -49,6 +49,13 @@ const SessionsPage = () => {
     setIsRunning(false);
   };
 
+   const handleEndSession = () => {
+    if (confirm("Are you sure you want to end this session? All participants will be notified.")) {
+      // this will navigate the HOST to dashboard
+      endSessionMutation.mutate(id, { onSuccess: () => navigate("/dashboard") });
+    }
+  };
+
 
   return (
     <div>SessionsPage</div>
