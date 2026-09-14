@@ -5,7 +5,12 @@ import { useNavigate, useParams } from "react-router";
 import { PROBLEMS } from "../data/problems";
 import { useEndSession, useJoinSession, useSessionById } from '../hooks/useSessions';
 import { executeCode } from '../lib/piston';
-import Navbar from "../components/Navbar"
+import Navbar from "../components/Navbar";
+import { Group, Panel, Separator } from "react-resizable-panels";
+import { getDifficultyBadgeClass } from "../lib/utils";
+import { Loader2Icon, LogOutIcon, PhoneOffIcon } from "lucide-react";
+import CodeEditorPanel from "../components/CodeEditorPanel";
+import OutputPanel from "../components/OutputPanel";
 
 const SessionsPage = () => {
    const navigate = useNavigate();
@@ -85,10 +90,10 @@ const SessionsPage = () => {
       <Navbar></Navbar>
 
        <div className="flex-1">
-        <PanelGroup direction="horizontal">
+        <Group orientation="horizontal">
            {/* LEFT PANEL - CODE EDITOR & PROBLEM DETAILS */}
           <Panel defaultSize={50} minSize={30}>
-            <PanelGroup direction="vertical">
+            <Group orientation="vertical">
               <Panel defaultSize={50} minSize={20}>
                 <div className="h-full overflow-y-auto bg-base-200">
                   {/* HEADER SECTION */}
@@ -113,8 +118,8 @@ const SessionsPage = () => {
                             session?.difficulty
                           )}`}
                         >
-                          {session?.difficulty.slice(0, 1).toUpperCase() +
-                            session?.difficulty.slice(1) || "Easy"}
+                          {session?.difficulty?.slice(0, 1).toUpperCase() +
+                            session?.difficulty?.slice(1) || "Easy"}
                         </span>
                         {isHost && session?.status === "active" && (
                           <button
@@ -208,9 +213,9 @@ const SessionsPage = () => {
                 </div>
               </Panel>
 
-              <PanelResizeHandle className="h-2 bg-base-300 hover:bg-primary transition-colors cursor-row-resize" />
+              <Separator className="h-2 bg-base-300 hover:bg-primary transition-colors cursor-row-resize" />
               <Panel defaultSize={50} minSize={20}>
-                <PanelGroup direction="vertical">
+                <Group orientation="vertical">
                   <Panel defaultSize={70} minSize={30}>
                     <CodeEditorPanel
                       selectedLanguage={selectedLanguage}
@@ -222,19 +227,18 @@ const SessionsPage = () => {
                     />
                   </Panel>
 
-                  <PanelResizeHandle className="h-2 bg-base-300 hover:bg-primary transition-colors cursor-row-resize" />
+                  <Separator className="h-2 bg-base-300 hover:bg-primary transition-colors cursor-row-resize" />
 
                   <Panel defaultSize={30} minSize={15}>
-                    <OutputPanel output={output} />
+                    <OutputPanel output={output} isRunning={isRunning} />
                   </Panel>
-                </PanelGroup>
+                </Group>
               </Panel>
-
-              <PanelResizeHandle className="w-2 bg-base-300 hover:bg-primary transition-colors cursor-col-resize" />
-
-
-            </PanelGroup>
+            </Group>
           </Panel>
+
+          <Separator className="w-2 bg-base-300 hover:bg-primary transition-colors cursor-col-resize" />
+
           {/* RIGHT PANEL - VIDEO CALLS & CHAT */}
           <Panel defaultSize={50} minSize={30}>
             <div className="h-full bg-base-200 p-4 overflow-auto">
@@ -268,7 +272,7 @@ const SessionsPage = () => {
               )}
             </div>
           </Panel>
-        </PanelGroup>
+        </Group>
        </div>
     </div>
   )
