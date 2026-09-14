@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router";
 import { PROBLEMS } from "../data/problems";
 import { useEndSession, useJoinSession, useSessionById } from '../hooks/useSessions';
 import { executeCode } from '../lib/piston';
+import Navbar from "../components/Navbar"
 
 const SessionsPage = () => {
    const navigate = useNavigate();
@@ -80,7 +81,9 @@ const SessionsPage = () => {
 
 
   return (
-    <div className="h-screen bg-base-100 flex flex-col"></div>
+    <div className="h-screen bg-base-100 flex flex-col">
+      <Navbar></Navbar>
+    </div>
   )
 }
 
