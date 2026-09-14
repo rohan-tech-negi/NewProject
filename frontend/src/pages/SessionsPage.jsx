@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { PROBLEMS } from "../data/problems";
 import { useEndSession, useJoinSession, useSessionById } from '../hooks/useSessions';
+import { executeCode } from '../lib/piston';
 
 const SessionsPage = () => {
    const navigate = useNavigate();
@@ -36,6 +37,16 @@ const SessionsPage = () => {
     const starterCode = problemData?.starterCode?.[newLang] || "";
     setCode(starterCode);
     setOutput(null);
+  };
+
+
+    const handleRunCode = async () => {
+    setIsRunning(true);
+    setOutput(null);
+
+    const result = await executeCode(selectedLanguage, code);
+    setOutput(result);
+    setIsRunning(false);
   };
 
 
