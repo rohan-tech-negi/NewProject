@@ -80,7 +80,7 @@ const SessionsPage = () => {
 
 
   return (
-    <div>SessionsPage</div>
+    <div className="h-screen bg-base-100 flex flex-col"></div>
   )
 }
 
