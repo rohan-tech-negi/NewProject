@@ -11,6 +11,7 @@ import { getDifficultyBadgeClass } from "../lib/utils";
 import { Loader2Icon, LogOutIcon, PhoneOffIcon } from "lucide-react";
 import CodeEditorPanel from "../components/CodeEditorPanel";
 import OutputPanel from "../components/OutputPanel";
+import useStreamClient from '../hooks/useStreamClient.js';
 
 const SessionsPage = () => {
    const navigate = useNavigate();
@@ -27,6 +28,13 @@ const SessionsPage = () => {
   const session = sessionData?.session;
   const isHost = session?.host?.clerkId === user?.id;
   const isParticipant = session?.participant?.clerkId === user?.id;
+
+   const { call, channel, chatClient, isInitializingCall, streamClient } = useStreamClient(
+    session,
+    loadingSession,
+    isHost,
+    isParticipant
+  );
   
 
     const problemData = session?.problem
