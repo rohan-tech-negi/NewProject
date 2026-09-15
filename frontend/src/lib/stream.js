@@ -1,0 +1,1 @@
+import { StreamVideoClient } from "@stream-io/video-react-sdk";
