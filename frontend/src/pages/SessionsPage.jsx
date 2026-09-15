@@ -12,6 +12,7 @@ import { Loader2Icon, LogOutIcon, PhoneOffIcon } from "lucide-react";
 import CodeEditorPanel from "../components/CodeEditorPanel";
 import OutputPanel from "../components/OutputPanel";
 import useStreamClient from '../hooks/useStreamClient.js';
+import { StreamCall, StreamVideo } from '@stream-io/video-react-sdk';
 
 const SessionsPage = () => {
    const navigate = useNavigate();
