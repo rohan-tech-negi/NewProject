@@ -240,7 +240,7 @@ const SessionsPage = () => {
           <Separator className="w-2 bg-base-300 hover:bg-primary transition-colors cursor-col-resize" />
 
           {/* RIGHT PANEL - VIDEO CALLS & CHAT */}
-          <Panel defaultSize={50} minSize={30}>
+          {/* <Panel defaultSize={50} minSize={30}>
             <div className="h-full bg-base-200 p-4 overflow-auto">
               {isInitializingCall ? (
                 <div className="h-full flex items-center justify-center">
@@ -271,7 +271,7 @@ const SessionsPage = () => {
                 </div>
               )}
             </div>
-          </Panel>
+          </Panel> */}
         </Group>
        </div>
     </div>
