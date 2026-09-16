@@ -9,9 +9,13 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { Channel, Chat, MessageInput, MessageList, Thread, Window } from "stream-chat-react";
 
-/
 
-const VideoCallUI = () => {
+const VideoCallUI = ({ chatClient, channel }) => {
+    const navigate = useNavigate();
+  const { useCallCallingState, useParticipantCount } = useCallStateHooks();
+  const callingState = useCallCallingState();
+  const participantCount = useParticipantCount();
+  const [isChatOpen, setIsChatOpen] = useState(false);
   return (
     <div>VideoCallUI</div>
   )
