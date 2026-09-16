@@ -7,7 +7,9 @@ import {
 import { Loader2Icon, MessageSquareIcon, UsersIcon, XIcon } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { Channel, Chat, MessageInput, MessageList, Thread, Window } from "stream-chat-react";
+import "@stream-io/video-react-sdk/dist/css/styles.css";
+import "stream-chat-react/dist/css/index.css";
+import { Channel, Chat, MessageComposer, MessageList, Thread, Window } from "stream-chat-react";
 
 
 const VideoCallUI = ({ chatClient, channel }) => {
@@ -82,7 +84,7 @@ const VideoCallUI = ({ chatClient, channel }) => {
                   <Channel channel={channel}>
                     <Window>
                       <MessageList />
-                      <MessageInput />
+                      <MessageComposer />
                     </Window>
                     <Thread />
                   </Channel>
