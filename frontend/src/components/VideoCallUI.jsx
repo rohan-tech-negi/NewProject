@@ -47,7 +47,7 @@ const VideoCallUI = ({ chatClient, channel }) => {
               title={isChatOpen ? "Hide chat" : "Show chat"}
             >
               <MessageSquareIcon className="size-4" />
-              Chat
+              chat
             </button>
           )}
         </div>
