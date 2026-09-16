@@ -28,7 +28,14 @@ const VideoCallUI = ({ chatClient, channel }) => {
     );
   }
   return (
-    <div>VideoCallUI</div>
+   <div className="h-full flex gap-3 relative str-video">
+    <div className="flex-1 flex flex-col gap-3">
+      {/* Participants count badge and Chat Toggle */}
+        <div className="flex items-center justify-between gap-2 bg-base-100 p-3 rounded-lg shadow">
+          
+        </div>
+    </div>
+   </div>
   )
 }
 
