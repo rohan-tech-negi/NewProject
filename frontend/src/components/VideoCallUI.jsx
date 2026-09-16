@@ -16,6 +16,17 @@ const VideoCallUI = ({ chatClient, channel }) => {
   const callingState = useCallCallingState();
   const participantCount = useParticipantCount();
   const [isChatOpen, setIsChatOpen] = useState(false);
+
+    if (callingState === CallingState.JOINING) {
+    return (
+      <div className="h-full flex items-center justify-center">
+        <div className="text-center">
+          <Loader2Icon className="w-12 h-12 mx-auto animate-spin text-primary mb-4" />
+          <p className="text-lg">Joining call...</p>
+        </div>
+      </div>
+    );
+  }
   return (
     <div>VideoCallUI</div>
   )
